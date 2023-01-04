@@ -1,39 +1,38 @@
-import React from 'react'
+import React from "react";
 
-const MenuCard = ({menuData}) => {
-    // console.log(menuData)
+const MenuCard = ({ menuData }) => {
+  //   console.log(menuData);
+
   return (
     <>
-    <section className="main-card--container">
-    {
+      <section className="main-card--container">
+        {menuData.map((curElem) => {
+          const { id, name, category, image, description } = curElem;
 
-        menuData.map((curElem)=>{
-            return(
-                <>
-                <div className='card-container'>
-        <div className='card'>
-          <div className='card-body'>
-            <span className="card-number card-circle subtle">1</span>
-            <span className="card-author subtle">Breakfast</span>
-            <h2 className="card-title">Maggie</h2>
+          return (
+            <>
+              <div className="card-container" key={id}>
+                <div className="card ">
+                  <div className="card-body">
+                    <span className="card-number card-circle subtle">{id}</span>
+                    <span className="card-author subtle"> {category}</span>
+                    <h2 className="card-title"> {name} </h2>
                     <span className="card-description subtle">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, illum expedita? Aliquam aliquid ducimus illum laborum officiis commodi necessitatibus iusto repudiandae accusantium, velit asperiores, nemo minima obcaecati inventore atque tenetur a aspernatur!
+                      {description}
                     </span>
                     <div className="card-read">Read</div>
                   </div>
-                  {/* <img src={image} alt="images" className="card-media" /> */}
+                  <img src={image} alt="images" className="card-media" />
 
                   <span className="card-tag  subtle">Order Now</span>
-          </div>
-
-        </div>
-        </>
-            )
-        })
-    }
-    </section>
+                </div>
+              </div>
+            </>
+          );
+        })}
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default MenuCard
+export default MenuCard;
